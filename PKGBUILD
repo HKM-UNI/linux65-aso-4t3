@@ -81,7 +81,15 @@ prepare() {
 
 build() {
   cd $_srcname
-  make all
+
+  # Gets the number of physical cores
+  pcores=$(cat /proc/cpuinfo | grep -m 1 "cpu cores" | sed -r 's/.*:\s?([[:digit:]]+)/\1/')
+  if [ $pcores -gt 0 ]; then
+    echo "Making 'all' with $pcores parallel jobs"
+    make -j $pcores all
+  else
+    make all
+  fi
   make htmldocs
 }
 
