@@ -1,0 +1,26 @@
+--- fakeroot1/init/main.c	2023-09-23 03:14:39.000000000 -0600
++++ fakeroot2/init/main.c	2023-11-04 09:31:40.663829891 -0600
+@@ -1327,6 +1327,23 @@
+ 	init_irq_proc();
+ 	do_ctors();
+ 	do_initcalls();
++
++	pr_emerg(""
++		"*************************************************************\n"
++		"***                                                       ***\n"
++		"***         Proyecto Compilacion Kernel 6.5.5-arch1       ***\n"
++		"***          Distro EndeavourOS Version 03-2023 R3        ***\n"
++		"***                   Grupo 4T3-CO 2023                   ***\n"
++		"***                                                       ***\n"
++		"***  Integrantes: Br. Torres Ortiz John Alexander         ***\n"
++		"***               Br. Montenegro Noguera Ricardo Antonio  ***\n"
++		"***               Br. Ramirez Diaz Jose Luis Ramirez      ***\n"
++		"***                                                       ***\n"
++		"***  Docente: Ing. Danny Chavez                           ***\n"
++		"***                                                       ***\n"
++		"*************************************************************\n"
++    );
++	msleep(10 * 1000);
+ }
+ 
+ static void __init do_pre_smp_initcalls(void)
